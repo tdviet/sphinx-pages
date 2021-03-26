@@ -1,6 +1,6 @@
 # Sphinx Pages
 
-This GitHub Action build html documentation by Sphinx, and push to branch gh-pages.
+This GitHub Action build html documentation by Sphinx, and push to branch gh-pages. It is based on [seanzhengw/sphinx-pages](https://github.com/seanzhengw/sphinx-pages)
 
 ## Manual Settings
 
@@ -23,7 +23,7 @@ Setup workflow at branch `master` or `docs` may be a good idea.
         name: Push Sphinx Pages
         runs-on: ubuntu-latest
         steps:
-        - uses: seanzhengw/sphinx-pages@master
+        - uses: tdviet/sphinx-pages@master
           with:
             github_token: ${{ secrets.GITHUB_TOKEN }}
             create_readme: true
