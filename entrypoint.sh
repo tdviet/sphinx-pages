@@ -109,8 +109,12 @@ fi
 
 # sphinx-build
 echo ::group::Sphinx build html
-echo "sphinx-build -b html $docs_src/docs $docs_html -E -d $sphinx_doctree"
-sphinx-build -b html $docs_src/$INPUT_SOURCE_DIR $docs_html -E -d $sphinx_doctree
+echo List input dir
+ls -la  $docs_src/$INPUT_SOURCE_DIR
+echo List input dir/docs
+ls -la  $docs_src/$INPUT_SOURCE_DIR/docs
+echo "sphinx-build -b html $docs_src/$INPUT_SOURCE_DIR/docs $docs_html -E -d $sphinx_doctree"
+sphinx-build -b html $docs_src/$INPUT_SOURCE_DIR/docs $docs_html -E -d $sphinx_doctree
 echo ::endgroup::
 
 # auto creation of README.md
