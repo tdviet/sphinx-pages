@@ -109,7 +109,7 @@ fi
 
 # sphinx-build
 echo ::group::Sphinx build html
-echo "sphinx-build -b html $docs_src/$INPUT_SOURCE_DIR/docs $docs_html -E -d $sphinx_doctree"
+echo "sphinx-build -b html $docs_src/docs $docs_html -E -d $sphinx_doctree"
 sphinx-build -b html $docs_src/$INPUT_SOURCE_DIR $docs_html -E -d $sphinx_doctree
 echo ::endgroup::
 
