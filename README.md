@@ -1,49 +1,16 @@
 # Sphinx Pages
 
-This GitHub Action build html documentation by Sphinx, and push to branch gh-pages. It is based on [seanzhengw/sphinx-pages](https://github.com/seanzhengw/sphinx-pages)
+This GitHub Action build html documentation by Sphinx, and push to branch gh-pages. 
+It is based on [seanzhengw/sphinx-pages](https://github.com/seanzhengw/sphinx-pages).
 
-## Manual Settings
+Changes (in comparison with the original repository):
+- including additional tools (build-essential, python3-dev) for building, see [Dockerfile](https://github.com/tdviet/sphinx-pages/blob/master/Dockerfile#L10)
+- default document directory to /docs, see [entrypoint.sh](https://github.com/tdviet/sphinx-pages/blob/master/entrypoint.sh#L117)
 
-Select gh-pages branch as GitHub Pages source at repository settings.
+See [seanzhengw/sphinx-pages](https://github.com/seanzhengw/sphinx-pages) for full usage.
 
-## Branch for workflow
+## Example 
 
-Don't use this GitHub Action at branch `gh-pages`.
-
-Setup workflow at branch `master` or `docs` may be a good idea.
-
-## Usage
-
-`example-sphinx.yml`
-
-    on: [push]
-
-    jobs:
-      build:
-        name: Push Sphinx Pages
-        runs-on: ubuntu-latest
-        steps:
-        - uses: tdviet/sphinx-pages@master
-          with:
-            github_token: ${{ secrets.GITHUB_TOKEN }}
-            create_readme: true
-
-## Example Usage for standalone Sphinx documentation
-
-There is a repo `mydoc`, it is Sphinx documentation source.
-
-put `example-sphinx.yml` into `mydoc/.github/workflows/`
-
-## Example Usage for separate docs to other branch
-
-There are two branchs in repo `myproject`, branch `master` and branch `docs`.
-
-The program source at branch `master`.
-
-The Sphinx documentation source at branch `docs`.
-
-To build GitHub Pages from branch `docs`, put `example-sphinx.yml` to branch `docs` only at `myproject/.github/workflows/`.
-
-## Self Example
-
-See [https://seanzhengw.github.io/sphinx-pages](https://seanzhengw.github.io/sphinx-pages/), it from branch [example](https://github.com/seanzhengw/sphinx-pages/tree/example).
+See [https://github.com/tdviet/fedcloudclient/blob/master/.github/workflows/sphinx-pages.yml](https://github.com/tdviet/fedcloudclient/blob/master/.github/workflows/sphinx-pages.yml) for 
+workflow and [https://fedcloudclient.fedcloud.eu/](https://fedcloudclient.fedcloud.eu/) for 
+output.
